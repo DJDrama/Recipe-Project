@@ -10,7 +10,7 @@ public class UnitOfMeasure { // reference table
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
+    private String description;
     String uom;
 
     @OneToOne
@@ -38,5 +38,13 @@ public class UnitOfMeasure { // reference table
 
     public void setIngredient(Ingredient ingredient) {
         this.ingredient = ingredient;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
