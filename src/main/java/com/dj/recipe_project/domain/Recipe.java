@@ -2,6 +2,8 @@ package com.dj.recipe_project.domain;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 public class Recipe {
     @Id
@@ -20,6 +22,9 @@ public class Recipe {
 
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
+    private Set<Ingredient> ingredient;
 
     public Long getId() {
         return id;
@@ -99,6 +104,14 @@ public class Recipe {
 
     public void setNotes(Notes notes) {
         this.notes = notes;
+    }
+
+    public Set<Ingredient> getIngredient() {
+        return ingredient;
+    }
+
+    public void setIngredient(Set<Ingredient> ingredient) {
+        this.ingredient = ingredient;
     }
 }
 
