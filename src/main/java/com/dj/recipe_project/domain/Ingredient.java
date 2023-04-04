@@ -16,8 +16,18 @@ public class Ingredient {
     @ManyToOne
     private Recipe recipe;
 
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure unitOfMeasure, Recipe recipe) {
+        this.description = description;
+        this.amount = amount;
+        this.unitOfMeasure = unitOfMeasure;
+        this.recipe = recipe;
+    }
+
     @OneToOne(fetch = FetchType.EAGER) // no cascade since UnitOfMeasure is just a reference table
     private UnitOfMeasure unitOfMeasure;
+
+    public Ingredient() {
+    }
 
     public Long getId() {
         return id;
