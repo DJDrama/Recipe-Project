@@ -2,7 +2,9 @@ package com.dj.recipe_project.domain;
 
 
 import jakarta.persistence.*;
+import lombok.*;
 
+@Data
 @Entity
 public class UnitOfMeasure { // reference table
 
@@ -16,35 +18,4 @@ public class UnitOfMeasure { // reference table
     @OneToOne
     private Ingredient ingredient;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUom() {
-        return uom;
-    }
-
-    public void setUom(String uom) {
-        this.uom = uom;
-    }
-
-    public Ingredient getIngredient() {
-        return ingredient;
-    }
-
-    public void setIngredient(Ingredient ingredient) {
-        this.ingredient = ingredient;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }
